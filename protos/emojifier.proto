@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service Emojifier {
+	rpc Emojify(stream ToEmojify) returns (stream Emojified);
+}
+
+service EmojiGetter {
+	rpc Get(ToEmojify) returns (WordEmoji); 
+}
+
+message ToEmojify {
+	string text = 1;
+	int32 degree = 2;
+}
+
+message Emojified {
+	string response = 1;
+}
+
+message WordEmoji {
+	string word = 1;
+	string emoji = 2;
+}
