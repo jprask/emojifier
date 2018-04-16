@@ -5,7 +5,7 @@ import emojifier_pb2_grpc
 
 
 def request_iterator():
-	for w in 'Ocean man word word house'.split():
+	for w in 'Ocean man take me by the hand lead me to the land that you understand'.split():
 		yield emojifier_pb2.ToEmojify(text=w, degree=5) 
 
 
