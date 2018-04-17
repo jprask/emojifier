@@ -16,7 +16,7 @@ class EmojiGetterServicer(emojifier_pb2_grpc.EmojiGetterServicer):
 
 	def Get(self, request, context):
 		word = request.text.lower()
-		singular, plural = (word[0:-1], word + 's') if word.endswith('s') else (None, None)
+		singular, plural = (word[0:-1], None) if word.endswith('s') else (None, word + 's')
 		dg = request.degree
 		match = []
 		for e in self.emojis:
